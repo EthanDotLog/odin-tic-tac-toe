@@ -8,7 +8,24 @@
   <title>Tic Tac Toe</title>
 </head>
 <body>
-  
+  <h1>Ghosthunter Vs Ghosts</h1>
+  <p>Its just Tick-Tac-Toe but different and mine now...</p>
+  <!-- make this starting point javascript eventually -->
+  <form>
+    <legend>~Choose Your Side~</legend>
+    <label for="hunter">
+      <!-- so clever, not only am i getting the player name, but the id will assign the token choice-->
+      <input id="hunter" type="text" placeholder="Player Name">The Ghosthunter <i class="fa-solid fa-user-secret"></i>
+    </label>
+    <label for="ghost">
+      <input id="ghost" type="text" placeholder="Player Name">The Ghost <i class="fa-solid fa-ghost"></i>
+    </label>
+    <input type="submit" value="Start Game">
+  </form>
+  <!-- Everything from this point on will be rewritten using javascript and replace the contents of MAIN-ATTRACTION-->
+  <div class="main-attraction"></div>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
