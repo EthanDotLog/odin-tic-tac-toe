@@ -27,36 +27,38 @@ function GameBoard() {
   };
 
   const winner = (player) => {
+    console.log(player)
+    console.log(board[0][1].getValue())
     if (
   // c1
   board[0][0].getValue() === player && 
-  board[0][0].getValue() === player &&
-  board[0][0].getValue() === player
+  board[0][1].getValue() === player &&
+  board[0][2].getValue() === player
   ||
   // c2
-  board[0][1].getValue() === player &&
-  board[0][1].getValue() === player &&
-  board[0][1].getValue() === player
+  board[1][0].getValue() === player &&
+  board[1][1].getValue() === player &&
+  board[1][2].getValue() === player
   ||
   // c3
-  board[0][2].getValue() === player &&
-  board[0][2].getValue() === player &&
-  board[0][2].getValue() === player
+  board[2][0].getValue() === player &&
+  board[2][1].getValue() === player &&
+  board[2][2].getValue() === player
   ||
   // r1
   board[0][0].getValue() === player &&
-  board[0][0].getValue() === player &&
-  board[0][0].getValue() === player
+  board[1][0].getValue() === player &&
+  board[2][0].getValue() === player
   ||
   // r2
-  board[1][0].getValue() === player &&
-  board[1][0].getValue() === player &&
-  board[1][0].getValue() === player
+  board[0][1].getValue() === player &&
+  board[1][1].getValue() === player &&
+  board[2][1].getValue() === player
   ||
   // r3
-  board[2][0].getValue() === player &&
-  board[2][0].getValue() === player &&
-  board[2][0].getValue() === player
+  board[0][2].getValue() === player &&
+  board[1][2].getValue() === player &&
+  board[2][2].getValue() === player
   ||
   // d1
   board[0][0].getValue() === player &&
@@ -64,17 +66,20 @@ function GameBoard() {
   board[2][2].getValue() === player
   ||
   // d2
-  board[2][2].getValue() === player &&
+  board[0][2].getValue() === player &&
   board[1][1].getValue() === player &&
-  board[0][0].getValue() === player
+  board[2][0].getValue() === player
   ) {
+    console.log(true)
     return true
   } else {
+    console.log(false)
     return false
   }
   }
+  const getWinner = winner;
 
-  return { getBoard, playerCell, printBoard, winner }
+  return { getBoard, playerCell, printBoard, getWinner }
 }
 
 function Cell() {
@@ -124,11 +129,8 @@ function GameController(
     );
     board.playerCell(column, row,  getActivePlayer().token);
     //winning condition here
-    if(winner(players[0].token)){
-      console.log("p1 wins")
-    }
-    if(winner(players[1].token)){
-      console.log("p2 wins")
+    if(board.getWinner(getActivePlayer().token)){
+      console.log(`${getActivePlayer().name} wins`)
     }
     switchPlayerTurn();
     printNewRound();

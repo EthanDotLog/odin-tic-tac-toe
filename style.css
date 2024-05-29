@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.board > div {
+  border: 1px solid black;
+  background-color: lightgrey;
+  flex-basis: 33%;
+  flex-grow: 1;
+}
+
+.board > div:hover {
+  background-color: azure;
+}
+
+.board {
+  height: 400px;
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+}
